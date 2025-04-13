@@ -1,13 +1,13 @@
 @extends('admin.layouts.layout')
 @section('admin_page_title')
-    Create Category
+    Edit Attribute
 @endsection
 @section('admin_layout')
     <div class=" row">
         <div class=" col-12">
             <div class=" card">
                 <div class=" card-header">
-                    <h5 class=" card-title mb-0">Create Category</h5>
+                    <h5 class=" card-title mb-0">Edit Attribute</h5>
                 </div>
 
                 <div class=" card-body">
@@ -26,12 +26,14 @@
                             {{ session('message') }}
                         </div>
                     @endif
-                    <form action="{{ route('store.cat') }}" method="POST">
+                    <form action="{{ route('update.attribute', $attri_info->id) }}" method="POST">
                         @csrf
-                        <label for="category_name" class=" fw-bold mb-2">Give Name of Your Category</label>
-                        <input type="text" class="form-control" name="category_name" placeholder="Computer">
+                        @method('PUT')
+                        <label for="attribute_value" class=" fw-bold mb-2">Give Name of Your Attribute</label>
+                        <input type="text" class="form-control" name="attribute_value"
+                            value="{{ $attri_info->attribute_value }}">
 
-                        <button type="submit" class=" btn btn-primary w-100 mt-2">Add Category</button>
+                        <button type="submit" class=" btn btn-primary w-100 mt-2">Update Attribute</button>
                     </form>
                 </div>
             </div>
