@@ -263,7 +263,10 @@
                                         data-feather="help-circle"></i>
                                     Help Center</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <input type="submit" value="Logout" class="ms-5 btn btn-warning">
+                                </form>
                             </div>
                         </li>
                     </ul>

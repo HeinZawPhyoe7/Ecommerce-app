@@ -10,7 +10,7 @@ class MasterSubCategoryController extends Controller
     public function storesubcat(Request $request)
     {
         $validate_data = $request->validate([
-            'subcategory_name' => 'unique:subcategories|max:100|min:5',
+            'subcategory_name' => 'unique:sub_categories|max:100|min:5',
             'category_id' => 'required|exists:categories,id'
         ]);
 

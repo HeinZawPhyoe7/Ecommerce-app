@@ -19,6 +19,9 @@
 
     <link href="{{ asset('admin_asset/css/app.css') }}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    @livewireStyles
 </head>
 
 <body>
@@ -281,7 +284,10 @@
                                         data-feather="help-circle"></i>
                                     Help Center</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <input type="submit" value="Logout" class="ms-5 btn btn-warning">
+                                </form>
                             </div>
                         </li>
                     </ul>
@@ -332,6 +338,7 @@
     </div>
 
     <script src="{{ asset('admin_asset/js/app.js') }}"></script>
+    @livewireScripts
 </body>
 
 </html>
